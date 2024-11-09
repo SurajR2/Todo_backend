@@ -6,7 +6,7 @@ const Tasks = require("../models/TaskSchema");
 router.get("/", async (req, res) => {
   try {
     const tasks = await Tasks.find();
-    res.status(200).json({ success: true, data: tasks });
+    res.status(200).json({ success: true, tasks: tasks });
   } catch (error) {
     console.error("Error fetching tasks:", error);
     res.status(500).json({ success: false, message: "Error fetching tasks" });
